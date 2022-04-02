@@ -40,6 +40,16 @@ export default function Header(props) {
                   Browse by
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink to="/teds" className="nav-link">
+                  Stories
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink to="/tess" className="nav-link">
+                  Agents
+                </NavLink>
+              </li>
             </ul>
           </div>
         </nav>

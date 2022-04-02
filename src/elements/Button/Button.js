@@ -64,7 +64,9 @@ export default function Button(props) {
       className={className.join(" ")}
       style={props.style}
       onClick={onClick}
-    ></button>
+    >
+      {props.children}
+    </button>
   );
 }
 
