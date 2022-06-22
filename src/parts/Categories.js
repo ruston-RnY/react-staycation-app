@@ -2,7 +2,6 @@ import React from "react";
 import Button from "../elements/Button/Button";
 
 export default function Categories({ data }) {
-  console.log(data);
   return data.map((category, index1) => {
     return (
       <section className="container" key={`category-${index1}`}>
