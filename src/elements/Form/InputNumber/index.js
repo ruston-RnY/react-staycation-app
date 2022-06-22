@@ -4,7 +4,8 @@ import "./index.scss";
 
 export default function Number(props) {
   // declare props
-  const { value, placeholder, name, min, max, prefix, suffix } = props;
+  const { value, placeholder, name, min, max, prefix, suffix, isSuffixPlural } =
+    props;
 
   // declare state
   const [InputValue, setInputValue] = useState(`${prefix}${value}${suffix}`);
@@ -12,7 +13,7 @@ export default function Number(props) {
   // fungsi onChange
   const onChange = (e) => {
     // terima value dari respon kemudian hapus stringnya
-    let value = e.target.value;
+    let value = String(e.target.value);
     if (prefix) value = value.replace(prefix);
     if (suffix) value = value.replace(suffix);
 
@@ -27,7 +28,9 @@ export default function Number(props) {
           value: +value,
         },
       });
-      setInputValue(`${prefix}${value}${suffix}`);
+      setInputValue(
+        `${prefix}${value}${suffix}${isSuffixPlural && value > 1 ? "s" : ""}`
+      );
     }
   };
 
@@ -43,7 +46,7 @@ export default function Number(props) {
   };
 
   const plus = () => {
-    value < min &&
+    value < max &&
       onChange({
         target: {
           name: name,
@@ -92,4 +95,5 @@ Number.propTypes = {
   onChange: propTypes.func,
   placeholder: propTypes.string,
   outerClassName: propTypes.string,
+  isSuffixPlural: propTypes.bool,
 };
