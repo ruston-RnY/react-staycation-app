@@ -1,9 +1,20 @@
 import React, { Component } from "react";
-import InputNumber from "../elements/Form/InputNumber/index";
+// import InputNumber from "../elements/Form/InputNumber/index";
+import InputDate from "../elements/Form/InputDate/index";
 
 export default class Example extends Component {
+  // tes input number
+  // state = {
+  //   value: "1",
+  // };
+
+  // tes input date
   state = {
-    value: "1",
+    value: {
+      startDate: new Date(),
+      endDate: new Date(),
+      key: "selection",
+    },
   };
 
   handleChange = (e) => {
@@ -19,10 +30,16 @@ export default class Example extends Component {
           style={{ height: "100vh" }}
         >
           <div className="col-auto">
-            <InputNumber
+            {/* <InputNumber
               max={30}
               suffix=" night"
               isSuffixPlural
+              onChange={this.handleChange}
+              name="value"
+              value={this.state.value}
+            /> */}
+            <InputDate
+              max={30}
               onChange={this.handleChange}
               name="value"
               value={this.state.value}
