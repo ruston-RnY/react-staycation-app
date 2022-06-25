@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from "../parts/Header";
 import PageDetailTitle from "../parts/PageDetailTitle";
 import ItemDetails from "../assets/json/itemDetails.json";
+import FeaturedImage from "../parts/FeaturedImage";
 
 export default class DetailPage extends Component {
   componentDidMount() {
@@ -25,6 +26,7 @@ export default class DetailPage extends Component {
       <>
         <Header {...this.props} />
         <PageDetailTitle data={ItemDetails} breadcrumb={breadcrumb} />
+        <FeaturedImage data={ItemDetails.imageUrls} />
       </>
     );
   }
