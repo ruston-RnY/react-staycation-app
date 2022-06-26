@@ -2,7 +2,7 @@ import React from "react";
 
 export default function FeaturedImage({ data }) {
   return (
-    <section className="container">
+    <div className="container">
       <div className="container-grid sm">
         {data.map((item, index) => {
           return (
@@ -21,6 +21,6 @@ export default function FeaturedImage({ data }) {
           );
         })}
       </div>
-    </section>
+    </div>
   );
 }

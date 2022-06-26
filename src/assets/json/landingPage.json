@@ -1,9 +1,21 @@
 {
-  "hero": {
-    "travelers": 80409,
-    "treasures": 882,
-    "cities": 1492
-  },
+  "hero": [
+    {
+      "imageUrl": "/images/icon-traveler.svg",
+      "name": "travelers",
+      "amount": 80409
+    },
+    {
+      "imageUrl": "/images/icon-treasure.svg",
+      "name": "treasures",
+      "amount": 882
+    },
+    {
+      "imageUrl": "/images/icon-cities.svg",
+      "name": "cities",
+      "amount": 1492
+    }
+  ],
   "mostPicked": [
     {
       "_id": "asd1293uasdads1",

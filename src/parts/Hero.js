@@ -1,9 +1,6 @@
 import React from "react";
 import ImageHero from "../assets/images/img-hero.jpg";
 import ImageHeroFrame from "../assets/images/img-hero-frame.jpg";
-import IconCities from "../assets/images/icons/icon-cities.svg";
-import IconTraveler from "../assets/images/icons/icon-traveler.svg";
-import IconTreasure from "../assets/images/icons/icon-treasure.svg";
 import Button from "../elements/Button/Button";
 import FormatNumber from "../utils/FormatNumber";
 
@@ -40,41 +37,28 @@ export default function Hero(props) {
           </Button>
 
           <div className="row" style={{ marginTop: 80 }}>
-            <div className="col-auto" style={{ marginRight: 35 }}>
-              <img
-                width="36"
-                height="36"
-                src={IconTraveler}
-                alt="icon traveler"
-              />
-              <h6 className="mt-3">
-                {FormatNumber(props.data.travelers)}{" "}
-                <span className="text-gray-500 font-weight-light">
-                  travelers
-                </span>
-              </h6>
-            </div>
-            <div className="col-auto" style={{ marginRight: 35 }}>
-              <img
-                width="36"
-                height="36"
-                src={IconTreasure}
-                alt="icon treasure"
-              />
-              <h6 className="mt-3">
-                {FormatNumber(props.data.treasures)}{" "}
-                <span className="text-gray-500 font-weight-light">
-                  treasures
-                </span>
-              </h6>
-            </div>
-            <div className="col-auto">
-              <img width="36" height="36" src={IconCities} alt="icon city" />
-              <h6 className="mt-3">
-                {FormatNumber(props.data.cities)}{" "}
-                <span className="text-gray-500 font-weight-light">cities</span>
-              </h6>
-            </div>
+            {props.data.map((item, index) => {
+              return (
+                <div
+                  className="col-auto"
+                  style={{ marginRight: 10 }}
+                  key={`Icon-${index}`}
+                >
+                  <img
+                    width="36"
+                    height="36"
+                    src={item.imageUrl}
+                    alt={`Icon-${item.name}`}
+                  />
+                  <h6 className="mt-3">
+                    {FormatNumber(item.amount)}{" "}
+                    <span className="text-gray-500 font-weight-light">
+                      {item.name}
+                    </span>
+                  </h6>
+                </div>
+              );
+            })}
           </div>
         </div>
 
