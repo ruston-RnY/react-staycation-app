@@ -72,7 +72,7 @@ export default class BookingForm extends Component {
         endDate: data.date.endDate,
       },
     });
-    this.props.history.push("/checkout");
+    // this.props.history.push("/checkout");
   };
 
   render() {

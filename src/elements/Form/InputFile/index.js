@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import propTypes from "prop-types";
 import "./index.scss";
 
