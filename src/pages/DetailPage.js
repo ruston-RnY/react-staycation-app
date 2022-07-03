@@ -9,7 +9,11 @@ import Categories from "../parts/Categories";
 import Testimony from "../parts/Testimony";
 import Footer from "../parts/Footer";
 
-export default class DetailPage extends Component {
+// yang berhubungan dengan redux
+import { connect } from "react-redux";
+import { checkoutBooking } from "../store/actions/checkout";
+
+class DetailPage extends Component {
   componentDidMount() {
     window.title = "Detail Page";
     window.scrollTo(0, 0);
@@ -38,7 +42,10 @@ export default class DetailPage extends Component {
               <PageDetailDescription data={ItemDetails} />
             </div>
             <div className="col-5">
-              <BookingForm itemDetails={ItemDetails} />
+              <BookingForm
+                itemDetails={ItemDetails}
+                startBooking={this.props.checkoutBooking}
+              />
             </div>
           </div>
         </div>
@@ -49,3 +56,5 @@ export default class DetailPage extends Component {
     );
   }
 }
+
+export default connect(null, { checkoutBooking })(DetailPage);

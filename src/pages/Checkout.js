@@ -12,7 +12,10 @@ import Payment from "../parts/Checkout/Payment";
 import Completed from "../parts/Checkout/Completed";
 import ItemDetails from "../assets/json/itemDetails.json";
 
-export default class Checkout extends Component {
+// yang berhubungan dengan redux
+import { connect } from "react-redux";
+
+class Checkout extends Component {
   state = {
     data: {
       firstName: "",
@@ -41,9 +44,27 @@ export default class Checkout extends Component {
 
   render() {
     const { data } = this.state;
-    const checkout = {
-      duration: 3,
-    };
+    const { checkout } = this.props;
+
+    if (!checkout)
+      return (
+        <div className="container">
+          <div
+            className="row align-items-center justify-content-center text-center"
+            style={{ height: "100vh" }}
+          >
+            <div className="col-3">
+              Pilih kamar dulu
+              <div>
+                <Button className="btn mt-5" type="link" isPrimary href="/">
+                  Back
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+
     const steps = {
       bookingInformation: {
         title: "Booking Information",
@@ -149,7 +170,7 @@ export default class Checkout extends Component {
               {CurrentStep === "completed" && (
                 <Controller>
                   <Button
-                    className="btn"
+                    className="btn d-flex justify-content-center"
                     type="link"
                     isBlock
                     isPrimary
@@ -167,3 +188,9 @@ export default class Checkout extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  checkout: state.checkout,
+});
+
+export default connect(mapStateToProps)(Checkout);
